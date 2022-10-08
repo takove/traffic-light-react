@@ -1,36 +1,41 @@
 import React, { useState } from "react";
 
 function Home() {
-  const [selectedColor, setSelectedColor] = useState("");
-  const [active, setActive] = useState(false)
+  const [selectedColorRed, setSelectedColorRed] = useState(false);
+  const [selectedColorYellow, setSelectedColorYellow] = useState(false);
+  const [selectedColorGreen, setSelectedColorGreen] = useState(false);
+  
   return (
     <div className="d-flex justify-content-center">
       <div className="mainFrame">
         <div
           onClick={() => {
-            setSelectedColor("red");
-            setActive(!active);
+            setSelectedColorYellow(false),
+            setSelectedColorRed(prev => !prev),
+            setSelectedColorGreen(false);
           }}
           className={`trafficLight red ${
-            selectedColor === "red" && active ? "shadow-css" : ""
+            selectedColorRed === true ? "shadow-css" : ""
           }`}
         ></div>
         <div
           onClick={() => {
-            setSelectedColor("yellow");
-            setActive(!active);
+            setSelectedColorYellow(prev => !prev),
+            setSelectedColorRed(false),
+            setSelectedColorGreen(false);
           }}
           className={`trafficLight yellow ${
-            selectedColor === "yellow"  && active ? "shadow-css" : ""
+            selectedColorYellow === true ? "shadow-css" : ""
           }`}
         ></div>
         <div
           onClick={() => {
-            setSelectedColor("rgb(14,255,26)");
-            setActive(!active);
+            setSelectedColorYellow(false),
+            setSelectedColorRed(false),
+            setSelectedColorGreen(prev => !prev);
           }}
           className={`trafficLight green ${
-            selectedColor === "rgb(14,255,26)"  && active ? "shadow-css" : ""
+            selectedColorGreen === true ? "shadow-css" : ""
           }`}
         ></div>
       </div>
